@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-class Infor extends StatelessWidget {
+class Details extends StatelessWidget {
   final String title;
   final String imageUrl;
   final String content;
 
-  const Infor(
+  const Details(
       {Key? key,
       required this.title,
       required this.imageUrl,
@@ -15,9 +16,10 @@ class Infor extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('News Details'),
+        title: const Text('Details',
+            style: TextStyle(fontWeight: FontWeight.w600)),
         centerTitle: true,
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Colors.white,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -43,15 +45,17 @@ class Infor extends StatelessWidget {
                   ),
             Text(
               title,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
+              style: GoogleFonts.tinos(
+                fontSize: 24,
+                fontWeight: FontWeight.w600,
               ),
             ),
             const SizedBox(height: 16),
             Text(
               content,
-              style: const TextStyle(fontSize: 16),
+              style: GoogleFonts.tinos(
+                fontSize: 18,
+              ),
             ),
           ],
         ),

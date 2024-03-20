@@ -1,6 +1,6 @@
 {
-    "name": "async_flutter",
-    "short_name": "async_flutter",
+    "name": "test_async",
+    "short_name": "test_async",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

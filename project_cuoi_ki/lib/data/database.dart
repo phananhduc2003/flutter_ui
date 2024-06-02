@@ -1,11 +1,17 @@
+import "dart:async";
+
 import "package:cloud_firestore/cloud_firestore.dart";
 
 class DatabaseMethods {
-  Future addEmployeeDetails(
-      Map<String, dynamic> employeeInfoMap, String id) async {
+  Future addStudentDetails(
+      Map<String, dynamic> studentInfoMap, String id) async {
     return await FirebaseFirestore.instance
-        .collection("Employee")
+        .collection("Student")
         .doc(id)
-        .set(employeeInfoMap);
+        .set(studentInfoMap);
+  }
+
+  Future<Stream<QuerySnapshot>> getStudentDetails() async {
+    return await FirebaseFirestore.instance.collection("Student").snapshots();
   }
 }

@@ -3,14 +3,14 @@ import 'package:project_cuoi_ki/data/database.dart';
 import 'package:random_string/random_string.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-class Employee extends StatefulWidget {
-  const Employee({super.key});
+class Student extends StatefulWidget {
+  const Student({super.key});
 
   @override
-  State<Employee> createState() => _EmployeeState();
+  State<Student> createState() => _StudentState();
 }
 
-class _EmployeeState extends State<Employee> {
+class _StudentState extends State<Student> {
   TextEditingController namecontroller = new TextEditingController();
   TextEditingController msvcontroller = new TextEditingController();
   TextEditingController classcontroller = new TextEditingController();
@@ -24,7 +24,7 @@ class _EmployeeState extends State<Employee> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "Employee",
+              "Student",
               style: TextStyle(
                   color: Colors.black,
                   fontSize: 20.0,
@@ -107,18 +107,17 @@ class _EmployeeState extends State<Employee> {
               child: ElevatedButton(
                   onPressed: () async {
                     String ID = randomAlphaNumeric(10);
-                    Map<String, dynamic> employeeInfoMap = {
+                    Map<String, dynamic> studentInfoMap = {
                       "ID": ID,
                       "Name": namecontroller.text,
                       "msv": msvcontroller.text,
                       "class": classcontroller.text,
                     };
                     await DatabaseMethods()
-                        .addEmployeeDetails(employeeInfoMap, ID)
+                        .addStudentDetails(studentInfoMap, ID)
                         .then((value) {
                       Fluttertoast.showToast(
-                          msg:
-                              "Employee Details has been uploaded successfully",
+                          msg: "Student Details has been uploaded successfully",
                           toastLength: Toast.LENGTH_LONG,
                           gravity: ToastGravity.BOTTOM,
                           timeInSecForIosWeb: 1,

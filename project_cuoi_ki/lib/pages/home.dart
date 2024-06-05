@@ -54,23 +54,34 @@ class _HomeState extends State<Home> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text('Name: ' + ds['Name'],
                                       style: TextStyle(
                                           color: Colors.black,
                                           fontSize: 20.0,
                                           fontWeight: FontWeight.bold)),
+                                  Spacer(),
                                   GestureDetector(
-                                    onTap: () {
-                                      EditStudentDetail(ds["ID"]);
-                                      namecontroller.text = ds["Name"];
-                                      classcontroller.text = ds['class'];
-                                      msvcontroller.text = ds["msv"];
+                                      onTap: () {
+                                        namecontroller.text = ds["Name"];
+                                        classcontroller.text = ds['class'];
+                                        msvcontroller.text = ds["msv"];
+                                        EditStudentDetail(ds["ID"]);
+                                      },
+                                      child: Icon(
+                                        Icons.edit,
+                                        color: Colors.black,
+                                      )),
+                                  SizedBox(
+                                    width: 5.0,
+                                  ),
+                                  GestureDetector(
+                                    onTap: () async {
+                                      await DatabaseMethods()
+                                          .deleteStudentDetail(ds['ID']);
                                     },
                                     child: Icon(
-                                      Icons.edit,
+                                      Icons.delete,
                                       color: Colors.black,
                                     ),
                                   )
